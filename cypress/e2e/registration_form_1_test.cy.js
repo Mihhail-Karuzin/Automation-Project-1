@@ -100,24 +100,24 @@ describe('This is first test suite,Mihhail Karuzin', () => {
         cy.get('input[name="password"]').type('TestPass1')
         cy.get('[name="confirm"]').type('TestPass1')
         cy.get('#username').type('Something')
-})    
+    })
 
     it('User cannot submit data when phone number is absent', () => {
         // Add test, similar to previous one with phone number field not filled in
         // All other fields should be entered correctly
         // Assert that submit button is not enabled and that successful message is not visible
-            cy.get('[data-testid="phoneNumberTestId"]').clear(); // Clear the phone number input field
-            cy.get('#username').type('Mihhailk'); //
-            // Click somewhere outside the input field to activate the submit button
-            cy.get('h2').contains('Password').click();
-        
-            // Assert that submit button is disabled
-            cy.get('.submit_button').should('be.disabled');
-          
-            // Assert that success message is not visible
-            cy.get('#success_message').should('not.be.visible');
-          });
-          
+        cy.get('[data-testid="phoneNumberTestId"]').clear(); // Clear the phone number input field
+        cy.get('#username').type('Mihhailk'); //
+        // Click somewhere outside the input field to activate the submit button
+        cy.get('h2').contains('Password').click();
+
+        // Assert that submit button is disabled
+        cy.get('.submit_button').should('be.disabled');
+
+        // Assert that success message is not visible
+        cy.get('#success_message').should('not.be.visible');
+    });
+
 
 
     it('User cannot submit data when password and/or confirmation password is absent', () => {
@@ -125,20 +125,20 @@ describe('This is first test suite,Mihhail Karuzin', () => {
         // All other fields should be entered correctly
         // Assert that submit button is not enabled and that successful message is not visible
 
-            // Fill in phone number and username
-            cy.get('[data-testid="phoneNumberTestId"]').type('555666777'); 
-            cy.get('#username').type('Mihhailk');
-          
-            // Click somewhere outside the input field to activate the submit button
-            cy.get('h2').contains('Password').click();
-          
-            // Assert that submit button is disabled
-            cy.get('.submit_button').should('be.disabled');
-                    
-            // Assert that success message is not visible
-            cy.get('#success_message').should('not.be.visible');
-          });
-          
+        // Fill in phone number and username
+        cy.get('[data-testid="phoneNumberTestId"]').type('555666777');
+        cy.get('#username').type('Mihhailk');
+
+        // Click somewhere outside the input field to activate the submit button
+        cy.get('h2').contains('Password').click();
+
+        // Assert that submit button is disabled
+        cy.get('.submit_button').should('be.disabled');
+
+        // Assert that success message is not visible
+        cy.get('#success_message').should('not.be.visible');
+    });
+
     it('User cannot add letters to phone number', () => {
         // Next verification is given as example
         // how we can check from html code, that phone number should contain only numbers
@@ -147,14 +147,14 @@ describe('This is first test suite,Mihhail Karuzin', () => {
         // Add steps, when all fields are correctly filled in, except phone number
         // Try typing letters to phone number field
         // Assert that submit button is not enabled and that successful message is not visibleit('User cannot add letters to phone number', () => {
-            
-            cy.get('[data-testid="phoneNumberTestId"]').should('have.attr', 'type', 'number').type('Cerebrum Hub');
-            cy.get('#username').type('Mihhailk');
-            cy.get('input[name="password"]').type('password123'); // Update the selector to target the password input field
-            cy.get('input[name="confirm"]').type('password123'); // Update the selector to target the confirmation password input field
-           
-            cy.get('.submit_button').should('be.disabled');
-          });
-          
 
-            });             
+        cy.get('[data-testid="phoneNumberTestId"]').should('have.attr', 'type', 'number').type('Cerebrum Hub');
+        cy.get('#username').type('Mihhailk');
+        cy.get('input[name="password"]').type('password123'); // Update the selector to target the password input field
+        cy.get('input[name="confirm"]').type('password123'); // Update the selector to target the confirmation password input field
+
+        cy.get('.submit_button').should('be.disabled');
+    });
+
+
+});             
